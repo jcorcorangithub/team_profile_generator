@@ -1,7 +1,7 @@
 # team_profile_generator
 
 ## Description
-build a Node.js command-line application that takes in information about employees on a software engineering team, then generates an HTML webpage that displays summaries for each person. Due to the importance of testing, unit tests will be written for every part of this code. 
+The purpose if this assignment is to build a Node.js command-line application that takes in information about employees on a software engineering team, then generates an HTML webpage that displays summaries for each person. Due to the importance of testing, unit tests will be written for every part of this code. 
 
 link to github repo:
 
