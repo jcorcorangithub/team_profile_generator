@@ -134,6 +134,7 @@ const addIntern = () => {
 
 
 const buildTeam = () => {
+    const completehtml = [];
     const startOfHTML = 
 `<!DOCTYPE html>
 <html lang="en">
@@ -141,12 +142,31 @@ const buildTeam = () => {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <title>Document</title>
+  <title>${teamName}</title>
 </head>
 <body>
-    <script src = "script.js"></script>
-</body>
-</html>
+    <h1 class="banner-bar">${teamName}</h1>
+
+    <div class="card-container">
+`
+
+completehtml.push(startOfHTML);
+
+teamArray.forEach((member) => {
+    const section = `
+    <div class="member-card">
+        <div class="card-top">
+            <h2>${member.name}</h2>
+            <h3>${member.title}</h3>
+        </div>
+        <div class="card-bottom">
+            <p>ID: ${member.id}</p>
+            <p>e-mail adress: <a href="mailto:${member.email}">${member.email}</a>></p>
+    `
+})
+        
+    `</div>
+    
 `
 ;
 }
@@ -156,7 +176,9 @@ const buildTeam = () => {
         
     
 
-
+{/* <script src = "script.js"></script>
+</body>
+</html> */}
 
 
 
