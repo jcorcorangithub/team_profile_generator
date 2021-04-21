@@ -135,6 +135,7 @@ const addIntern = () => {
 
 const buildTeam = () => {
     const completehtml = [];
+    // startOfhtml will be the first element in the completehtml array
     const startOfHTML = 
 `<!DOCTYPE html>
 <html lang="en">
@@ -149,44 +150,52 @@ const buildTeam = () => {
 
     <div class="card-container">
 `
+    completehtml.push(startOfHTML);
 
-completehtml.push(startOfHTML);
-
-teamArray.forEach((member) => {
-    const section = `
-    <div class="member-card">
-        <div class="card-top">
-            <h2>${member.name}</h2>
-            <h3>${member.title}</h3>
+    teamArray.forEach((member) => {
+        const section = `
+        <div class="member-card">
+            <div class="card-top">
+                <h2>${member.name}</h2>
+                <h3>${member.title}</h3>
+            </div>
+            <div class="card-bottom">
+                <p>ID: ${member.id}</p>
+                <p>e-mail adress: <a href="mailto:${member.email}">${member.email}</a>></p>
+        `
+        if (member.officeNumber) {
+            section += `
+            <p>${member.officeNumber}</p>
+            `
+        }
+        if (member.github) {
+            section += `
+            <p>GitHub: <a href="https://github.com/${member.github}">${member.github}</a></p>
+            `
+        }
+        if (member.school) {
+            section += `
+            <p>School: ${member.school}</p>
+            `
+        }
+        section += `   
+            </div>
         </div>
-        <div class="card-bottom">
-            <p>ID: ${member.id}</p>
-            <p>e-mail adress: <a href="mailto:${member.email}">${member.email}</a>></p>
+        `
+        // section will be added elements in the completehtml array, each one represting the html content for each member
+        completehtml.push(section);
+    });
+
+    // this will be the last element of the completehtml array
+    const endOfHTML = `
+    </div>
+    <script src = "script.js"></script>
+    </body>
+    </html>
     `
-})
-        
-    `</div>
-    
-`
-;
+    completehtml.push(endOfHTML);
+
+    fs.writeFile('./dist/index.html', completehtml.join(''), (err) =>  err ? console.error(err) : console.log("Success!"));
 }
-
-        
-        
-        
-    
-
-{/* <script src = "script.js"></script>
-</body>
-</html> */}
-
-
-
-const init = () => {
-    promptUser()
-      .then((answers) => writeFileAsync('./dist/index.html', generateHTML(answers)))
-      .then(() => console.log('Successfully wrote to index.html'))
-      .catch((err) => console.error(err));
-  };
   
-  promptUser();
+promptUser();
