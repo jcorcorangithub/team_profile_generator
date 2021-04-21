@@ -14,3 +14,5 @@ class Engineer extends Employee {
         return this.Engineer;
     }
 }
+
+module.exports = Engineer;

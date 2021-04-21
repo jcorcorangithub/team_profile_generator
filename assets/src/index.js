@@ -1,3 +1,4 @@
+//const Employee = require('../lib/employee')
 const Manager = require('../lib/manager');
 const Engineer = require('../lib/engineer');
 const Intern = require('../lib/intern');
@@ -5,7 +6,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 
 const teamArray = [];
-const teamName; 
+const teamName = ""; 
 
 const promptUser = () => {
     inquirer
@@ -37,9 +38,10 @@ const promptUser = () => {
             },
             ])
         .then(function(data){
-            teamName = data.teamName;
+            //teamName = data.teamName;
             const manager = new Manager(data.name, data.id, data.email, data.number);
             teamArray.push(manager);
+            addTeamMembers();
         })
     
 };
