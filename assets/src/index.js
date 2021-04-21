@@ -3,38 +3,94 @@ const Engineer = require('../lib/engineer');
 const Intern = require('../lib/intern');
 const inquirer = require('inquirer');
 const fs = require('fs');
-const util = require('util');
 
-const writeFileAsync = util.promisify(fs.writeFile);
+const teamArray = [];
+const teamName; 
 
 const promptUser = () => {
-    return inquirer.prompt([
-        {
-            type: 'input',
-            name: 'manager',
-            message: "Enter the manager's name: ",
-        },
-        {
-            type: 'input',
-            name: 'managerid',
-            message: "Enter the manager's ID number: ",
-        },
-        {
-            type: 'input',
-            name: 'manageremail',
-            message: "Enter the manager's e-mail address: ",
-        },
-        {
-            type: 'input',
-            name: 'managernumber',
-            message: "Enter the manager's office phone number: ",
-        },
+    inquirer
+        .prompt([
+            {
+                type: 'input',
+                name: 'teamName',
+                message: "Please enter your team's name: ",
+            },
+            {
+                type: 'input',
+                name: 'name',
+                message: "Enter the manager's name: ",
+            },
+            {
+                type: 'input',
+                name: 'id',
+                message: "Enter the manager's ID number: ",
+            },
+            {
+                type: 'input',
+                name: 'email',
+                message: "Enter the manager's e-mail address: ",
+            },
+            {
+                type: 'input',
+                name: 'number',
+                message: "Enter the manager's office phone number: ",
+            },
+            ])
+        .then(function(data){
+            teamName = data.teamName;
+            const manager = new Manager(data.name, data.id, data.email, data.number);
+            teamArray.push(manager);
+        })
+    
+};
+
+const addTeamMembers = () => {
+    inquirer
+    .prompt([
         {
             type: 'list',
-            name: 'otheremployee',
-            message: "Please make a decision regarding the team: ",
-            choices:['add an engineer','add an intern','finish building team and exit'],
+            name: 'addedMember',
+            message: "Would you like to add a team member?: ",
+            choices:['I would like to add an engineer','I would like to add an intern',
+                                    'I would like to finish building team and exit'],
         },
+     ])
+    .then(function(data){
+        switch (data){
+            case 'I would like to add an engineer':
+                addEngineer();
+                break;
+            case 'I would like to add an intern':
+                addIntern();
+                break;
+            case 'I would like to finish building my team and exit':
+                buildTeam();
+                break;
+        }
+    })    
+};
+
+const addEngineer = () => {
+    inquirer
+    .prompt([
+
+    ])
+    .then(function(data){
+
+    })
+};
+
+const addIntern = () => {
+    inquirer
+    .prompt([
+
+    ])
+    .then(function(data){
+
+    })
+};
+
+
         {
             type: 'input',
             name: 'engineername',
@@ -76,8 +132,7 @@ const promptUser = () => {
             message: "Enter the intern's school: ",
         },
         
-    ]);
-};
+    
 
 const generateHTML = (answers) =>
 `<!DOCTYPE html>
