@@ -145,6 +145,7 @@ const buildTeam = () => {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
   <title>${teamName}</title>
 </head>
 <body>
@@ -191,7 +192,6 @@ const buildTeam = () => {
     // this will be the last element of the completehtml array
     const endOfHTML = `
     </div>
-    <script src = "script.js"></script>
     </body>
     </html>
     `
