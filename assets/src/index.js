@@ -6,7 +6,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 
 const teamArray = [];
-const teamName = ""; 
+let teamName = ""; 
 
 const promptUser = () => {
     inquirer
@@ -38,7 +38,7 @@ const promptUser = () => {
             },
             ])
         .then(function(data){
-            //teamName = data.teamName;
+            teamName = data.teamName;
             const manager = new Manager(data.name, data.id, data.email, data.number);
             teamArray.push(manager);
             addTeamMembers();
@@ -58,19 +58,19 @@ const addTeamMembers = () => {
             },
         ])
         .then(function(data){
-            switch (data){
+            switch (data.addedMember){
                 case 'I would like to add an engineer':
                     addEngineer();
                     break;
                 case 'I would like to add an intern':
                     addIntern();
                     break;
-                case 'I would like to finish building my team and exit':
+                case 'I would like to finish building team and exit':
                     buildTeam();
                     break;
             }
-        })    
-};
+        });    
+}
 
 const addEngineer = () => {
     inquirer
@@ -155,11 +155,11 @@ const buildTeam = () => {
     completehtml.push(startOfHTML);
 
     teamArray.forEach((member) => {
-        const section = `
+        let section = `
         <div class="member-card">
             <div class="card-top">
                 <h2>${member.name}</h2>
-                <h3>${member.title}</h3>
+                <h3>Title: ${member.title}</h3>
             </div>
             <div class="card-bottom">
                 <p>ID: ${member.id}</p>
@@ -167,17 +167,17 @@ const buildTeam = () => {
         `
         if (member.officeNumber) {
             section += `
-            <p>${member.officeNumber}</p>
+                <p>${member.officeNumber}</p>
             `
         }
         if (member.github) {
             section += `
-            <p>GitHub: <a href="https://github.com/${member.github}">${member.github}</a></p>
+                <p>GitHub: <a href="https://github.com/${member.github}">${member.github}</a></p>
             `
         }
         if (member.school) {
             section += `
-            <p>School: ${member.school}</p>
+                <p>School: ${member.school}</p>
             `
         }
         section += `   
@@ -197,7 +197,7 @@ const buildTeam = () => {
     `
     completehtml.push(endOfHTML);
 
-    fs.writeFile('./dist/index.html', completehtml.join(''), (err) =>  err ? console.error(err) : console.log("Success!"));
+    fs.writeFile('../dist/index.html', completehtml.join(''), (err) =>  err ? console.error(err) : console.log("Success!"));
 }
   
 promptUser();
