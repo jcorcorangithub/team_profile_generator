@@ -21,6 +21,10 @@ test('returns the email property of the object', () => {
     expect(engineerTest.getEmail()).toBe('jamesemail');
 });
 
+test('returns the github property of the object', () => {
+    expect(engineerTest.getGithub()).toBe('jcorcorangit');
+});
+
 // test('returns ___________', () => {
 //     expect(engineerTest.getRole()).toBe();
 // });

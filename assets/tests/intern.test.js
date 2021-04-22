@@ -21,6 +21,10 @@ test('returns the email property of the object', () => {
     expect(internTest.getEmail()).toBe('tomemail');
 });
 
+test('returns the school property of the object', () => {
+    expect(internTest.getSchool()).toBe('gwu');
+});
+
 // test('returns ___________', () => {
 //     expect(internTest.getRole()).toBe();
 // });
