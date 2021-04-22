@@ -20,7 +20,7 @@ test('returns the email property of the object', () => {
     expect( employeeTest.getEmail()).toBe('jpc@email');
 });
 
-// test('returns ___________', () => {
-//     expect( employeeTest.getRole()).toBe('jim');
-// });
+test('returns employee string', () => {
+    expect( employeeTest.getRole()).toBe('Employee');
+});
 

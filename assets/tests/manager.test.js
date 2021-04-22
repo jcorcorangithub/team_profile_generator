@@ -7,7 +7,6 @@ test('constructor', () => {
     expect(managerTest.id).toBe(882);
     expect(managerTest.email).toBe('lademail');
     expect(managerTest.officeNumber).toBe(663);
-    expect(managerTest.title).toBe('Manager');
 });
 
 test('returns the name property of the object', () => {
@@ -22,6 +21,6 @@ test('returns the email property of the object', () => {
     expect(managerTest.getEmail()).toBe('lademail');
 });
 
-// test('returns ___________', () => {
-//     expect(managerTest.getRole()).toBe();
-// });
+test('returns manager string', () => {
+    expect(managerTest.getRole()).toBe('Manager');
+});

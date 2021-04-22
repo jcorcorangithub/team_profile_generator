@@ -199,5 +199,5 @@ const buildTeam = () => {
 
     fs.writeFile('../dist/index.html', completehtml.join(''), (err) =>  err ? console.error(err) : console.log("Success!"));
 }
-  
+
 promptUser();

@@ -7,7 +7,6 @@ test('constructor', () => {
     expect(internTest.id).toBe(123);
     expect(internTest.email).toBe('tomemail');
     expect(internTest.school).toBe('gwu');
-    expect(internTest.title).toBe('Intern');
 });
 
 test('returns the name property of the object', () => {
@@ -26,6 +25,6 @@ test('returns the school property of the object', () => {
     expect(internTest.getSchool()).toBe('gwu');
 });
 
-// test('returns ___________', () => {
-//     expect(internTest.getRole()).toBe();
-// });
+test('returns intern string', () => {
+    expect(internTest.getRole()).toBe('Intern');
+});
