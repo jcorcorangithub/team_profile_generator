@@ -7,6 +7,7 @@ test('constructor', () => {
     expect(engineerTest.id).toBe(555);
     expect(engineerTest.email).toBe('jamesemail');
     expect(engineerTest.github).toBe('jcorcorangit');
+    expect(engineerTest.title).toBe('Engineer');
 });
 
 test('returns the name property of the object', () => {
