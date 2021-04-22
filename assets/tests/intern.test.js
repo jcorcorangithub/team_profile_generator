@@ -6,11 +6,11 @@ test('constructor', () => {
     expect(internTest.name).toBe('tom');
     expect(internTest.id).toBe(123);
     expect(internTest.email).toBe('tomemail');
-    expect(internTest.github).toBe('gwu');
+    expect(internTest.school).toBe('gwu');
 });
 
 test('returns the name property of the object', () => {
-    expect(internTest.getName.toBe('tom'));
+    expect(internTest.getName()).toBe('tom');
 });
 
 test('returns the id property of the object', () => {

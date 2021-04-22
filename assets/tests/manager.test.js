@@ -10,7 +10,7 @@ test('constructor', () => {
 });
 
 test('returns the name property of the object', () => {
-    expect(managerTest.getName.toBe('ladislav'));
+    expect(managerTest.getName()).toBe('ladislav');
 });
 
 test('returns the id property of the object', () => {
