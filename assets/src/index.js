@@ -168,7 +168,7 @@ const buildTeam = () => {
         `
         if (member.officeNumber) {
             section += `
-                <p>${member.officeNumber}</p>
+                <p>Office Number: ${member.officeNumber}</p>
             `
         }
         if (member.github) {
