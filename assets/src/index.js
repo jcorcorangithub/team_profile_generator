@@ -145,7 +145,7 @@ const buildTeam = () => {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css">
   <title>${teamName}</title>
 </head>
 <body>
@@ -157,28 +157,28 @@ const buildTeam = () => {
 
     teamArray.forEach((member) => {
         let section = `
-        <div class="member-card">
+        <div class="card member-card">
             <div class="card-top">
-                <h2>${member.name}</h2>
-                <h3>Title: ${member.title}</h3>
+                <h2 class="card-title">${member.name}</h2>
+                <h3>Title: ${member.getRole()}</h3>
             </div>
             <div class="card-bottom">
-                <p>ID: ${member.id}</p>
-                <p>e-mail adress: <a href="mailto:${member.email}">${member.email}</a>></p>
+                <p class="card-text">ID: ${member.id}</p>
+                <p class="card-text">e-mail adress: <a href="mailto:${member.email}">${member.email}</a></p>
         `
         if (member.officeNumber) {
             section += `
-                <p>Office Number: ${member.officeNumber}</p>
+                <p class="card-text">Office Number: ${member.officeNumber}</p>
             `
         }
         if (member.github) {
             section += `
-                <p>GitHub: <a href="https://github.com/${member.github}">${member.github}</a></p>
+                <p class="card-text">GitHub: <a href="https://github.com/${member.github}">${member.github}</a></p>
             `
         }
         if (member.school) {
             section += `
-                <p>School: ${member.school}</p>
+                <p class="card-text">School: ${member.school}</p>
             `
         }
         section += `   
