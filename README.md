@@ -8,6 +8,7 @@ https://github.com/jcorcorangithub/team_profile_generator
 
 
 link to video
+https://drive.google.com/file/d/1Te_rf8KcoK6w1hy2klLBrt97Ik6TZys9/view
 
 ## Technologies
 JavaScript
